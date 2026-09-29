@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PR Reviewer Agent</title>
+<link rel="stylesheet" href="/static/app.css" />
+</head>
+<body>
+<header>
+  <h1>PR Reviewer Agent</h1>
+  <p class="sub">Fetches unreviewed pull requests and summarizes them with a local LLM.</p>
+</header>
+
+<main>
+  <section class="panel">
+    <h2>Configuration (TOML)</h2>
+    <p class="hint" id="config-hint">Loading…</p>
+    <textarea id="config" spellcheck="false" rows="18"></textarea>
+  </section>
+
+  <section class="panel">
+    <h2>Repositories</h2>
+    <p class="hint">One <code>owner/repo</code> per line. Lines starting with <code>#</code> are ignored.</p>
+    <textarea id="repos" spellcheck="false" rows="6" placeholder="owner/repo"></textarea>
+
+    <h2>GitHub token</h2>
+    <p class="hint" id="token-hint">Leave blank to use the <code>GIT_TOKEN</code> environment variable.</p>
+    <input id="token" type="password" autocomplete="off" placeholder="Personal access token (optional)" />
+
+    <button id="run">Run review</button>
+    <p class="status" id="status"></p>
+  </section>
+</main>
+
+<section class="panel results" id="results-panel" hidden>
+  <div class="results-head">
+    <h2 id="results-title">Results</h2>
+    <button id="toggle-raw" class="link">Show raw report</button>
+  </div>
+  <pre id="raw" hidden></pre>
+  <div id="results"></div>
+</section>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

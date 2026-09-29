@@ -216,3 +216,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# PR review agent
+.env
+pr_summaries.json
+conf.toml
+pr_summaries.txt
+repos.txt

@@ -1,0 +1,21 @@
+[github]
+# For GitHub Enterprise use https://<your-host>/api/v3
+base_url = "https://api.github.com"
+reviewer = "your-github-username"
+days_back = 7
+max_files = 20
+
+[workflow]
+# Options: "summaries" fetches PRs and summarizes them; "fetch_only" only lists fetched PRs.
+mode = "summaries"
+repos_file = "repos.txt"
+
+[output]
+json_file = "pr_summaries.json"
+text_file = "pr_summaries.txt"
+
+[llm]
+# Use an instruct-tuned model (e.g. codellama/CodeLlama-7b-Instruct-hf) — the base
+# "-hf" completion model rarely follows the "return only JSON" instruction reliably.
+model_id = "codellama/CodeLlama-7b-Instruct-hf"
+task = "text-generation"
