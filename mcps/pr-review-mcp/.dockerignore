@@ -1,0 +1,9 @@
+.env
+conf.toml
+repos.txt
+.git/
+.aienv/
+__pycache__/
+*.py[cod]
+pr_summaries.json
+pr_summaries.txt
